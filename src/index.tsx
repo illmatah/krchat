@@ -6,6 +6,8 @@ import { Main } from './Main';
 import { useEffect, useState } from 'preact/hooks';
 import { chatService } from './ChatService';
 
+Notification.requestPermission();
+
 function App()
 {
 	let [ renderCount, setRenderCount ] = useState( 1 );

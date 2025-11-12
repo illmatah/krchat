@@ -7,7 +7,6 @@ import { ConversationDto } from "./ChatService";
 export function Main()
 {
 	let [ selected, setSelected ] = useState<ConversationDto>();
-
 	return <div class="Main">
 		<LeftPane selected={ selected } onSelect={ setSelected } />
 		<RightPane conversation={ selected } />

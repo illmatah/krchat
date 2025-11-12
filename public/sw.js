@@ -13,3 +13,15 @@ async function impl(e) {
 self.addEventListener("fetch", 
   /** @param {FetchEvent} e */ (e) => e.respondWith(impl(e))
 ); // Eseményre feliratkozás
+self.addEventListener('push',
+  /** @param {PushEvent} e */ async (e) => {
+    const message = e.data.text()
+    if (!message) {
+      console.error('Push event but no data')
+      return
+    }
+    await self.registration.showNotification('Chat notification', {
+      body: message
+    })
+  }
+)
